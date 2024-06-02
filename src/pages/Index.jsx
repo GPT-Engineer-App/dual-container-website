@@ -1,14 +1,16 @@
-import { Container, Box, Text, VStack, HStack, Button, IconButton } from "@chakra-ui/react";
+import { Container, Box, Text, VStack, HStack, Button, IconButton, Flex } from "@chakra-ui/react";
 import { FaUpload } from "react-icons/fa";
 
 const Index = () => {
   return (
     <Container maxW="container.xl" height="100vh" display="flex" flexDirection="column" justifyContent="start" alignItems="center" p={4}>
-      <HStack width="100%" justifyContent="space-between" mb={4}>
-        <Button leftIcon={<FaUpload />} colorScheme="blue" size="lg" width="200px">
-          Upload Document
-        </Button>
-      </HStack>
+      <Flex id="navbar-container" width="90%" alignItems="center" justifyContent="center" mb={4}>
+        <HStack width="100%" justifyContent="space-between">
+          <Button leftIcon={<FaUpload />} colorScheme="blue" size="lg" width="200px">
+            Upload Document
+          </Button>
+        </HStack>
+      </Flex>
       <HStack spacing={4} width="100%" justifyContent="center">
         <Box width="45%" height="80vh" borderWidth="1px" borderRadius="lg" overflow="hidden" p={4}>
           <Text fontSize="xl" mb={4}>Educational Text</Text>
