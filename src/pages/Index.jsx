@@ -14,8 +14,8 @@ const Index = () => {
 
   return (
     <Container maxW="container.xl" height="100vh" display="flex" flexDirection="column" justifyContent="start" alignItems="center" p={4}>
-      <Flex id="navbar-container" width="100vw" bg="blue.500" alignItems="center" justifyContent="center" mb={4}>
-        <Box width="90vw" display="flex" justifyContent="space-between">
+      <Flex id="navbar-container" width="100vw" height="10vh" bg="blue.500" alignItems="center" justifyContent="center" mb={4}>
+        <Box width="90vw" display="flex" justifyContent="space-between" alignItems="center">
           <Button leftIcon={<FaUpload />} colorScheme="blue" size="lg" width="200px" onClick={() => fileInputRef.current.click()}>
             Upload Document
           </Button>
