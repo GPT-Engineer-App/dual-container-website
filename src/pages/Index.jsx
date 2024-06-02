@@ -4,12 +4,23 @@ import { useState, useRef } from "react";
 
 const Index = () => {
   const [uploadedFile, setUploadedFile] = useState(null);
+  const [fileContent, setFileContent] = useState("");
   const fileInputRef = useRef(null);
 
   const handleFileUpload = (event) => {
     const file = event.target.files[0];
-    setUploadedFile(file);
-    console.log("Uploaded file:", file);
+    if (file) {
+      setUploadedFile(file);
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setFileContent(e.target.result);
+        console.log("File content:", e.target.result);
+      };
+      reader.onerror = (e) => {
+        console.error("Error reading file:", e.target.error);
+      };
+      reader.readAsText(file);
+    }
   };
 
   return (
@@ -38,6 +49,11 @@ const Index = () => {
         <Box width="45%" height="80vh" borderWidth="1px" borderRadius="lg" overflow="hidden" p={4}>
           <Text fontSize="xl" mb={4}>Essence</Text>
           {/* Content for Essence */}
+          {fileContent && (
+            <Box mt={4} p={4} bg="gray.100" borderRadius="md">
+              <Text fontSize="md" whiteSpace="pre-wrap">{fileContent}</Text>
+            </Box>
+          )}
         </Box>
       </HStack>
     </Container>
